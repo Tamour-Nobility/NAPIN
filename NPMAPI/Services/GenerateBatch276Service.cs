@@ -1166,7 +1166,7 @@ namespace NPMAPI.Services
         {
             ClaimsDataModel result = new ClaimsDataModel();
             string connectionString = ConfigurationManager.ConnectionStrings["NPMEDI277CA"].ConnectionString;
-            //using (SqlConnection con = new SqlConnection("Server=13.64.106.147,1984;Database=NPMDevDB;User Id=EDITeam;Password=Pakistan-123;"))
+            //using (SqlConnection con = new SqlConnection("Server=13.64.106.147,1984;Database=******;User Id=*****;Password=******;"))
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();

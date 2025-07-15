@@ -100,8 +100,8 @@ namespace NPMAPI.Services
             var pracInfo = _practiceService.GetPracticeFTPInfo(PracticeCode, FTPType.EDI);
             if (pracInfo == null && string.IsNullOrEmpty(pracInfo.Username) && string.IsNullOrEmpty(pracInfo.Password))
             {
-                eligObj.AuthSOAPHeaderValue.User = "4FQF";
-                eligObj.AuthSOAPHeaderValue.Password = "Rcmnobility2022!";
+                eligObj.AuthSOAPHeaderValue.User = "******";
+                eligObj.AuthSOAPHeaderValue.Password = "****";
             }
             else
             {

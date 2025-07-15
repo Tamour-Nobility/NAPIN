@@ -12037,7 +12037,7 @@ namespace NPMAPI.Services
             ClaimsViewModel claimsViewModel = new ClaimsViewModel();
             //string connectionString = ConfigurationManager.ConnectionStrings["NPMDBEntities"].ConnectionString;
             string connectionString = ConfigurationManager.ConnectionStrings["NPMUB04"].ConnectionString;
-            //using (SqlConnection con = new SqlConnection("Server=13.64.106.147,1984;Database=NPMDevDB;User Id=EDITeam;Password=Pakistan-123;"))
+            //using (SqlConnection con = new SqlConnection("Server=******;Database=*****;User Id=*****;Password=*****;"))
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();

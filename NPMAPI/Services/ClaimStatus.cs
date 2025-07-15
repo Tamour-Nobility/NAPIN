@@ -20,8 +20,8 @@ namespace NPMAPI.Services
     {
         private readonly IClaimStatusService _claimStatusService;
         private readonly IPracticeRepository _practiceService;
-        public string _username = "V313";
-        public string _password = "Sn^TPknajEU76Pt";
+        public string _username = "****";
+        public string _password = "******";
         private readonly Vendor _vendor;
         private const string _payLoadType = "X12_276_Request_005010X212";
 
@@ -91,8 +91,8 @@ namespace NPMAPI.Services
             var endpointAddress = new EndpointAddress("https://api.gatewayedi.com/v2/CORE_CAQH/soap");
             var client = new CORETransactionsClient(binding, endpointAddress);
 
-            client.ClientCredentials.UserName.UserName = "V313";
-            client.ClientCredentials.UserName.Password = "Sn^TPknajEU76Pt";
+            client.ClientCredentials.UserName.UserName = "*****";
+            client.ClientCredentials.UserName.Password = "****";
 
             var request = new COREEnvelopeRealTimeRequest
             {

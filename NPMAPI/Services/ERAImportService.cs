@@ -322,10 +322,10 @@ namespace NPMAPI.Services
                         string smtpPassword = ConfigurationManager.AppSettings["password"];
 
                         // Email recipient
-                        string emailRecipient = "h.mehmood @nobilityrcm.com";
+                        string emailRecipient = "sfdfsd@nobilityrcm.com";
                         //In CC
-                        string TL = "mabbas@nobilityrcm.com";
-                        string AM = "a.farooq@nobilityrcm.com";
+                        string TL = "sdfsdf@nobilityrcm.com";
+                        string AM = "sdfsdfsd@nobilityrcm.com";
                         // Email subject and body
                         string subject = "Manual ERA Request Stats – " + DateTime.Now;
                         string statsHead = "Manual ERA Request Stats".ToUpper();
@@ -677,10 +677,10 @@ namespace NPMAPI.Services
                         string smtpPassword = ConfigurationManager.AppSettings["password"];
 
                         // Email recipient
-                        string emailRecipient = "h.mehmood @nobilityrcm.com";
+                        string emailRecipient = "dgbdfb@nobilityrcm.com";
                         //In CC
-                        string TL = "mabbas@nobilityrcm.com";
-                        string AM = "a.farooq@nobilityrcm.com";
+                        string TL = "dfhdd@nobilityrcm.com";
+                        string AM = "ytrtyrt@nobilityrcm.com";
                         // Email subject and body
                         string subject = "Manual ERA Request Stats – " + DateTime.Now;
                         string statsHead = "Manual ERA Request Stats".ToUpper();
@@ -755,10 +755,10 @@ namespace NPMAPI.Services
             string smtpPassword = ConfigurationManager.AppSettings["password"];
             string body = "";
             // Email recipient
-            string emailRecipient = "h.mehmood @nobilityrcm.com";
+            string emailRecipient = "dfgdfgd @nobilityrcm.com";
             //In CC
-            string TL = "mabbas@nobilityrcm.com";
-            string AM = "a.farooq@nobilityrcm.com";
+            string TL = "dfgdfg@nobilityrcm.com";
+            string AM = "dgdfgdfgq@nobilityrcm.com";
             // Email subject and body
             string subject = "Manual ERA Request Stats – " + DateTime.Now;
             string statsHead = "Manual ERA Request Stats".ToUpper();
@@ -1524,10 +1524,10 @@ namespace NPMAPI.Services
                 string smtpPassword = ConfigurationManager.AppSettings["password"];
 
                 // Email recipient
-                string emailRecipient = "h.mehmood @nobilityrcm.com";
+                string emailRecipient = "sfddsf@nobilityrcm.com";
                 //In CC
-                string TL = "mabbas@nobilityrcm.com";
-                string AM = "a.farooq@nobilityrcm.com";
+                string TL = "qwe@nobilityrcm.com";
+                string AM = "qwe@nobilityrcm.com";
                 // Email subject and body
                 string subject = "Manual ERA Request Stats – " + DateTime.Now;
                 string statsHead = "Manual ERA Request Stats".ToUpper();
@@ -1675,10 +1675,10 @@ namespace NPMAPI.Services
                         string smtpPassword = ConfigurationManager.AppSettings["password"];
 
                         // Email recipient
-                        string emailRecipient = "h.mehmood @nobilityrcm.com";
+                        string emailRecipient = "dfsdfsd@nobilityrcm.com";
                         //In CC
-                        string TL = "mabbas@nobilityrcm.com";
-                        string AM = "a.farooq@nobilityrcm.com";
+                        string TL = "sdfsdf@nobilityrcm.com";
+                        string AM = "sfdsdfsdq@nobilityrcm.com";
                         // Email subject and body
                         string subject = "Manual ERA Request Stats – " + DateTime.Now;
                         string statsHead = "Manual ERA Request Stats".ToUpper();
@@ -1825,10 +1825,10 @@ namespace NPMAPI.Services
                 string smtpPassword = ConfigurationManager.AppSettings["password"];
 
                 // Email recipient
-                string emailRecipient = "h.mehmood @nobilityrcm.com";
+                string emailRecipient = "sdfsdf@nobilityrcm.com";
                 //In CC
-                string TL = "mabbas@nobilityrcm.com";
-                string AM = "a.farooq@nobilityrcm.com";
+                string TL = "sdfsdf@nobilityrcm.com";
+                string AM = "sfdsdfsdq@nobilityrcm.com";
                 // Email subject and body
                 string subject = "Manual ERA Request Stats – " + DateTime.Now;
                 string statsHead = "Manual ERA Request Stats".ToUpper();
