@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NPMAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NPMAPI_com_gatewayedi_services_Eligibility" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://services.gatewayedi.com/Eligibility/Service.asmx</Value>
+    </Setting>
+    <Setting Name="NPMAPI_com_gatewayedi_services1_Eligibility" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://services.gatewayedi.com/Eligibility/Service.asmx</Value>
+    </Setting>
+    <Setting Name="NPMAPI_ServiceReference1_Core" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://URL_OF_WEB_SERVICE</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

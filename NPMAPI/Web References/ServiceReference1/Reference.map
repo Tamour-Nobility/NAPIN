@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://www.caqh.org/hubfs/43908627/drupal/core/wsdl/CORERule2.2.0.wsdl" filename="CORE.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://www.caqh.org/hubfs/43908627/drupal/core/wsdl/CORERule2.2.0.xsd" filename="CORERule2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="https://api.gatewayedi.com/V2/CORE_CAQH/soap?disco" filename="soap.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

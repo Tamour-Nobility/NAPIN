@@ -1,0 +1,2752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{579461C0-6747-4B60-BB64-0F0E34B09855}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NPMAPI</RootNamespace>
+    <AssemblyName>NPMAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EdiFabric.Core, Version=9.8.7.5, Culture=neutral, PublicKeyToken=30198c5f4974e51a, processorArchitecture=MSIL">
+      <HintPath>..\packages\EdiFabric.Core.9.8.7.5\lib\net45\EdiFabric.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EdiFabric.Examples.X12.Common">
+      <HintPath>.\EdiFabric.Examples.X12.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="EdiFabric.Examples.X12.Templates.V5010.NoValidation">
+      <HintPath>.\EdiFabric.Examples.X12.Templates.V5010.NoValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="EdiFabric.Framework, Version=9.8.7.5, Culture=neutral, PublicKeyToken=30198c5f4974e51a, processorArchitecture=MSIL">
+      <HintPath>..\packages\EdiFabric.Framework.9.8.7.5\lib\net45\EdiFabric.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Exportable, Version=2.0.1.18715, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infodinamica.Framework.Exportable.2.0.1.18715\lib\net45\Exportable.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.5.2.2\lib\net472\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.2\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.6.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.5.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.8\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="OopFactory.X12, Version=3.0.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OopFactory.X12.3.0.8.1\lib\net40\OopFactory.X12.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly.7.2.3\lib\net472\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet.Async, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Renci.SshNet.Async.1.4.0\lib\net40\Renci.SshNet.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.5.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\GlobalVariables.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityResolver.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\IActionResult.cs" />
+    <Compile Include="Controllers\RealTimeClaimStatusController.cs" />
+    <Compile Include="Controllers\ReferralPhysiciansController.cs" />
+    <Compile Include="Controllers\ScrubberController.cs" />
+    <Compile Include="Controllers\ClaimAssignmentController.cs" />
+    <Compile Include="Controllers\ScrubberController.cs" />
+    <Compile Include="Controllers\TicketAttachmentController.cs" />
+    <Compile Include="Controllers\TicketTrackerController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\UBClaimController.cs" />
+    <Compile Include="EncryptionHandler.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DemographicController.cs" />
+    <Compile Include="Controllers\ERAController.cs" />
+    <Compile Include="Controllers\HCFAController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InboxHealthController.cs" />
+    <Compile Include="Controllers\InsurancePaymentRequestModal.cs" />
+    <Compile Include="Controllers\InsuranceSetupController.cs" />
+    <Compile Include="Controllers\ItemizedPatientStatmentController.cs" />
+    <Compile Include="Controllers\PatientAttachmentsController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\PracticeSetupController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SchedulerController.cs" />
+    <Compile Include="Controllers\SetupController.cs" />
+    <Compile Include="Controllers\SubmissionController.cs" />
+    <Compile Include="Controllers\VendorController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="Controllers\UserManagementSetupController.cs" />
+    <Compile Include="Enums\DefaultProperties.cs" />
+    <Compile Include="Enums\eInboxHealthEvents.cs" />
+    <Compile Include="Enums\FTPType.cs" />
+    <Compile Include="ExtensionMethods\Extensions.cs" />
+    <Compile Include="Filters\NLogExceptionLogger.cs" />
+    <Compile Include="Filters\NullModelActionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DynamicConnections.cs" />
+    <Compile Include="Helpers\IISHandler1.cs" />
+    <Compile Include="JWTManager.cs" />
+    <Compile Include="Models\a.cs" />
+    <Compile Include="Models\accountassigneeModel.cs" />
+    <Compile Include="Models\AccountAssignee_AL.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountAssignee_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddressType.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddressValidationViewModel.cs" />
+    <Compile Include="Models\Admission_Details.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aging_Summary_Analysis_Reporting_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aging_Summary_Analysis_Report_Patient_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aging_Summary_Analysis_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AGING_SUMMARY_PATIENT_REPORT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AGING_SUMMARY_REPORT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aging_Summary_report_Top_5_Payers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aging_Summary_Top_5_Payers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AlertModel.cs" />
+    <Compile Include="Models\Amt.cs" />
+    <Compile Include="Models\AppealAttachment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\appointment_reasons.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment_Status.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AssigneeusersList.cs" />
+    <Compile Include="Models\Attachment_TypeCode.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BALANCE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BatchClaimsDetail.cs" />
+    <Compile Include="Models\BatchClaimSubmissionResponse.cs" />
+    <Compile Include="Models\BatchPatientClaim.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BATCHPAYMENT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BatchStatusModel.cs" />
+    <Compile Include="Models\By_Cpt_DOS_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Charges_at_CPT_Level_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\checkdetail_impt.cs" />
+    <Compile Include="Models\CheckPracticeCode.cs" />
+    <Compile Include="Models\check_CPtPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Check_Duplicate_Blocking_Rule_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Check_Office_Timing_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\check_provider_cptplan_existence.cs" />
+    <Compile Include="Models\City.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claimassigneeModel.cs" />
+    <Compile Include="Models\ClaimAssignee_CL.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClaimAssignee_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClaimBatchViewModels.cs" />
+    <Compile Include="Models\ClaimChargesAdditionalFields.cs" />
+    <Compile Include="Models\ClaimErrorMessage.cs" />
+    <Compile Include="Models\claimerrormessageRejection.cs" />
+    <Compile Include="Models\ClaimOverpayment.cs" />
+    <Compile Include="Models\claimReason.cs" />
+    <Compile Include="Models\claimsbkp.cs" />
+    <Compile Include="Models\ClaimsDataModel.cs" />
+    <Compile Include="Models\ClaimsPayments_06082023.cs" />
+    <Compile Include="Models\ClaimsPayments_06092023.cs" />
+    <Compile Include="Models\ClaimStatus_Search_Criteria.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClaimSubmission.cs" />
+    <Compile Include="Models\ClaimSubmissionModel.cs" />
+    <Compile Include="Models\ClaimSummaryViewModel.cs" />
+    <Compile Include="Models\ClaimsViewModel.cs" />
+    <Compile Include="Models\Claims_06082023.cs" />
+    <Compile Include="Models\Claims_06092023.cs" />
+    <Compile Include="Models\claims_bkp20230925.cs" />
+    <Compile Include="Models\claims_bkp_10012019.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_Condition_Code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_filling_limit.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_ICD10DX.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_Not_Mapped_Prop.cs" />
+    <Compile Include="Models\Claims_Occurence_Span_Code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_Occurrence_Code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claims_Ptl_Feedback.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLAIMS_SUBMITTED.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claims_testUbaid.cs" />
+    <Compile Include="Models\Claims_Value_Code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_batch.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_batchbkp.cs" />
+    <Compile Include="Models\claim_batch_detail.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_batch_detail_test.cs" />
+    <Compile Include="Models\claim_batch_error.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Batch_Exceptions.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_bkp.cs" />
+    <Compile Include="Models\Claim_Charges.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_charges_06092023.cs" />
+    <Compile Include="Models\CLAIM_CHARGES_BKP20230817.cs" />
+    <Compile Include="Models\Claim_Charges_No_Mapped_Prop.cs" />
+    <Compile Include="Models\Claim_Charges_Summary.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_info_worker_injurycase.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Insurance.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_insurance_06092023.cs" />
+    <Compile Include="Models\CLAIM_NOTES.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Overpayment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Payments.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLAIM_PAYMENTSBKP20230817.cs" />
+    <Compile Include="Models\claim_paymentsbkp20230818.cs" />
+    <Compile Include="Models\claim_paymenttets.cs" />
+    <Compile Include="Models\Claim_Provider_Diagnosis_Proc_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\claim_reject_type_CO.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Status_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Claim_Worker_Injurycase.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLC_Assigned_Roles.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLC_Roles.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CombinedCodeModel.cs" />
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Condition_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\consortium_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contractor.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contractor_jurisdiction.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contractor_type_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\coverage_topic_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPADASHBOARD.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPT.cs" />
+    <Compile Include="Models\Cptplan_MD.cs" />
+    <Compile Include="Models\CPTs_Analysis_by_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPTs_Ana_by_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cpt_Current_Status.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPT_Fee_Charge.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPT_FEE_STRUCTURE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPT_HOSPBILLS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cpt_pricing_modifier.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cpt_ShortCodes.cs" />
+    <Compile Include="Models\Cruduser.cs" />
+    <Compile Include="Models\CSIReportModel.cs" />
+    <Compile Include="Models\CSI_Batch.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CSI_Batch_Error.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CSI_Batch_Response.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomEdit.cs" />
+    <Compile Include="Models\CustomEditsError.cs" />
+    <Compile Include="Models\CustomEditsErrors_jinnah.cs" />
+    <Compile Include="Models\CustomEdits_ClearClaims.cs" />
+    <Compile Include="Models\CustomEdits_Columns.cs" />
+    <Compile Include="Models\CustomEdits_FrontEnd.cs" />
+    <Compile Include="Models\CustomEdits_Test.cs" />
+    <Compile Include="Models\CustomEdit_Mapping.cs" />
+    <Compile Include="Models\CustomField.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customised_diagnosis_Description.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customised_Procedure_Description.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomValue.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomValues_Column.cs" />
+    <Compile Include="Models\Custom_Edits.cs" />
+    <Compile Include="Models\Custom_Scrubber_Rules.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__EFMigrationsHistory.cs" />
+    <Compile Include="Models\Data12356.cs" />
+    <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\Datet.cs" />
+    <Compile Include="Models\Days_Of_Week.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\default_group_IDs.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Default_Setting_Practice.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DelayClaimReports_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DelayReason1.cs" />
+    <Compile Include="Models\DelayReasonsNew.cs" />
+    <Compile Include="Models\Deleted_Codes.cs" />
+    <Compile Include="Models\DeleteinvoicepymentResponse.cs" />
+    <Compile Include="Models\DeleteInvoicepaymentsRequest.cs" />
+    <Compile Include="Models\DeleteInvoiceResponse.cs" />
+    <Compile Include="Models\Delivery_Zone.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DemoERADBModel.cs" />
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department_practice.cs" />
+    <Compile Include="Models\deposit.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\deposit1.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Deposit_Bank.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Deposit_Bank_Detail.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEPOSIT_SLIPS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeptShiftTiming.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Designation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diagnosi.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiagnosisAccDel.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DIAGNOSIS_PAYER.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Discharge_Status.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Division.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dmerc_region_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DO.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCUMENT_CATEGORIES.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOSAGE_UNITS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dtp.cs" />
+    <Compile Include="Models\Dummy.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DXSearchCriteria_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\edit.cs" />
+    <Compile Include="Models\editassignedaccountModel.cs" />
+    <Compile Include="Models\editassignedclaimModel.cs" />
+    <Compile Include="Models\Edits_jinnah.cs" />
+    <Compile Include="Models\EFS_ImpactSummary.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFS_Practices.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFS_Suggested.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EligRequests_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EligRequestTEST_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EligRequest_Result.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeInformation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee_Practice.cs" />
+    <Compile Include="Models\ENROLLMENT_TRACKER.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EOB_Adjustment_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPSDTWORKERINFO.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\epssdataoriginal.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\era.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERACHECKDETAIL.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERACHECKDETAIL_bkp20232607.cs" />
+    <Compile Include="Models\eracheckdetail_EDI.cs" />
+    <Compile Include="Models\ERACLAIMINFO.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERACLAIMINFO_EDI.cs" />
+    <Compile Include="Models\eraclaiminfo_impt.cs" />
+    <Compile Include="Models\ERASUMMARY.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERASUMMARY_EDI.cs" />
+    <Compile Include="Models\era_adjustment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERA_Adjustment_Mapping.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERA_ADJUSTMENT_MAPPING_BKP_012721.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\era_claim.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\era_claim_service.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERA_PLB_CODE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\era_provider_adjustment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERA_Request.cs" />
+    <Compile Include="Models\Era_Summary_Impt.cs" />
+    <Compile Include="Models\ERA_UNPOSTED_PAYMENTS_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ethnicity.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExternalPractices_Reporting.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Facility.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Facility_Insurance_Id.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Facility_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fee_Plan_Update.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fetchFailedClaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fiancial_Summary.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\File277CA.cs" />
+    <Compile Include="Models\File999.cs" />
+    <Compile Include="Models\FileSegmentValue.cs" />
+    <Compile Include="Models\FINAL2.cs" />
+    <Compile Include="Models\Financial_Analysis_At_CPT_Level_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Financial_Analysis_by_Provider_and_Procedure_Codes_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FINANCIAL_SUMMARY_REPORT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Functional_Group_Rejection_Response.cs" />
+    <Compile Include="Models\Gender.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetAppointmentById_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetAppointmentEvents_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetAppointment_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBatchClaimsDetails_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBatchClaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetClaimChargesByClaimNo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetClaimsForStatement_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetColumnList.cs" />
+    <Compile Include="Models\GetColumn_List.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCPTPlanByProviderPlanId_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCPTPlanByProviderPlanId_Temp_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCPTPlanByProviderPlanId_Umer_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCSI_BatchDetails_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GETEFSPRACTICES_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetExistingAppointmentData_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInsuranceNamesByGroup_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInsurancePayersByInsPayerId_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInsurancePayersByInsPayerState_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInsurancePayersByName_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInsurancesByPayers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetOfficeTiming_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPanelALternateCodeDetails_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPanelBillingSummaryByPractice_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPanelCodeCPTDetailsClaim_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPatientForStatement_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPatientWithClaimsForItemizedStatement_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPatientWithClaimsForStatement_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPracticeActiveUsers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPracticeFacilites_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GETPRACTICES_WITHDETAILS_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetPracticeUserReportingDetail_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetRecentClaimDetailsWithDiagnosis_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetTeamsByOffice_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetTicketTrackDetail.cs" />
+    <Compile Include="Models\GetUnassignedAppointmemtReasons_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Get_CustomEdits_Colums.cs" />
+    <Compile Include="Models\GET_ISFACILITY_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group_Location.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group_Provider.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Guarantor.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GUARANTORSRAW_1011004.cs" />
+    <Compile Include="Models\GUARANTORS_MAPPING_1011004.cs" />
+    <Compile Include="Models\Hard_Coded_Value.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hard_Coded_Valuenew.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HASHHASHA.cs" />
+    <Compile Include="Models\HCFAImage.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HCFAImagesType.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HCFA_Attachment_Type.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hcfa_fields.cs" />
+    <Compile Include="Models\HCFA_Notes_List.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\hcpc_code_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hierarchy.cs" />
+    <Compile Include="Models\HIPAA_278_PAYER_INFORMATION.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\hospital_affilation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\icd9_code_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InboxHealth\BaseResponse.cs" />
+    <Compile Include="Models\InboxHealth\ClaimChargesUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\ClaimPaymentUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\ClaimUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\PatientPaymentDetailResponse.cs" />
+    <Compile Include="Models\InboxHealth\PatientUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\PracticeLocationUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\PracticeUpdateRequest.cs" />
+    <Compile Include="Models\InboxHealth\ProviderUpdateRequest.cs" />
+    <Compile Include="Models\include_in_edi.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsCardCategory.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\instruction_history_New.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\insurancelist.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsuranceModel.cs" />
+    <Compile Include="Models\InsurancePayerViewModel.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsurancePaymentViewModel.cs" />
+    <Compile Include="Models\CPTChargesViewModel.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\DepartmentViewModel.cs" />
+    <Compile Include="Models\DesignationViewModel.cs" />
+    <Compile Include="Models\DownloadedFile.cs" />
+    <Compile Include="Models\DublicatePatientCheckModel.cs" />
+    <Compile Include="Models\EraDbModel.cs" />
+    <Compile Include="Models\FacilitySearchModel.cs" />
+    <Compile Include="Models\HCFAResponseModel.cs" />
+    <Compile Include="Models\InboxHealth\InboxHealthEventBaseEntity.cs" />
+    <Compile Include="Models\InboxHealth\InboxHealthEvent.cs" />
+    <Compile Include="Models\InsuranceNameViewModel.cs" />
+    <Compile Include="Models\InsurancePayerVM.cs" />
+    <Compile Include="Models\Insurancesbkp_07092023.cs" />
+    <Compile Include="Models\InsurancesByPayersViewModel.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsuranceSearchViewModel.cs" />
+    <Compile Include="Models\insurances_11252021.cs" />
+    <Compile Include="Models\Insurances_Bkp_08232020.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsuranceViewModel.cs" />
+    <Compile Include="Models\Insurance_Denials.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Departments.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\INSURANCE_FILING_LIMIT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_filing_limit2.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Groups.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Names.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Payers.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Payers_07092023.cs" />
+    <Compile Include="Models\Insurance_Payers_Bkp_08232020.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_payers_formats.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\INSURANCE_PAYERS_PLAN.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Payers_Plan_Group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurance_Phone_Directory.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\insurance_role_engine.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Insurnace_Names_Bkp_08232020.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ins_provider_no.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoicePayments.cs" />
+    <Compile Include="Models\Issue_test.cs" />
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_future_retire.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_related_documents.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_bill_code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_contractor.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_coverage_topic.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_hcpc_code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_hcpc_code_group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_icd9_dont_support.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_icd9_support.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_icd9_support_group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_primary_jurisdiction.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_revenue_code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lcd_x_secondary_jurisdiction.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lkup_location_ids.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mainfacility.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Maintenance.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\maintenance_counter.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaritalStatu.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEDICINE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEDICINE_FORMULATION.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medigap_Insurances.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEMO_MAPPING.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEMO_MAPPING_PRACTICE_PLAN.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mis_tbl_AttachmentType_Setup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MIS_TBL_Corrected_Claim_Reason.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MIS_TBL_CPT_Reason.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mis_tbl_fillcombo.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MIS_TBL_Institution_Condition_Code.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MIS_TBL_Insurance_Resources_Remarks.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Modifier.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Module.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Module_Properties.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Module_Properties_bkp20230821.cs" />
+    <Compile Include="Models\Module_Properties_bkp2023_08_21.cs" />
+    <Compile Include="Models\MONTH_END_AGING.cs" />
+    <Compile Include="Models\MONTH_END_FINANCIAL.cs" />
+    <Compile Include="Models\MONTH_END_FINANCIAL_PROVIDE_LOCATION.cs" />
+    <Compile Include="Models\Month_end_payments_adjustments.cs" />
+    <Compile Include="Models\Myalldata.cs" />
+    <Compile Include="Models\NAME.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NDCSearchCriteria_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NDC_CrossWalk.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NDC_CrossWalk_bkp_02192024.cs" />
+    <Compile Include="Models\NDC_List_Update.cs" />
+    <Compile Include="Models\NDC_List_Updated.cs" />
+    <Compile Include="Models\NEW_CATEGORY.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\New_Code.cs" />
+    <Compile Include="Models\New_Codes.cs" />
+    <Compile Include="Models\NEW_GCODE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NEW_PATIENTLETTER_FIELDS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nobility_standardcptfee.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notes_Description.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notes_Description_Category.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NPM.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NPM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NPM.cs" />
+    <Compile Include="Models\NPM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NPM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NPM1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NpmAlert.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Occurrence_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Occurrence_Span_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Office.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfficeViewModel.cs" />
+    <Compile Include="Models\office_employees.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Office_tests.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Office_Test_Detail.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Output277.cs" />
+    <Compile Include="Models\Packet277CAClaimReason_Messages.cs" />
+    <Compile Include="Models\Panel_Billing_Code_Cptdetail.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Panel_Billing_Code_detail.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientDemographicViewModel.cs" />
+    <Compile Include="Models\PatientImageModel.cs" />
+    <Compile Include="Models\PatientInsuranceViewModel.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientInsuranceViewModel_Not_Mapped_Prop.cs" />
+    <Compile Include="Models\PatientPayment.cs" />
+    <Compile Include="Models\PatientPaymentProcessed.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientSearchModel.cs" />
+    <Compile Include="Models\PatientSearchResultModel.cs" />
+    <Compile Include="Models\PatientSearchViewModel.cs" />
+    <Compile Include="Models\PatientStatementMessages.cs" />
+    <Compile Include="Models\PatientStatementRequest.cs" />
+    <Compile Include="Models\Patient_Attachments.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\patient_bkp11282018.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\patient_bkp_11282018.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient_Insurance.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient_Ptl_Feedback.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient_Statement_Messages.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PAYER.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PayerMappedInsuranceSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PayerPortal_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PayerWise_Analysis_by_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payer_Facility_Id.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payer_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\payer_not_450.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\payment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payments_at_CPT_Level_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentType.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_By_Carrier_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_Daily_Refresh_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_detail_Proctest_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_detail_Proc_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_Detail_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHARMACy.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Phone_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\physcian_information.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHY_BA_AGREEMENT.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Place_Of_Services.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\place_of_services_bkp_11082018.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Plan_setup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Possible_Options.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PP_BillingSoftware.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PQRI_INDIVIDUAL_MEASURES.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PracticeAppointmentReason.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PracticeAppointmentStatu.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PracticeFacilitesViewModel.cs" />
+    <Compile Include="Models\PracticeFacilityViewModel.cs" />
+    <Compile Include="Models\PracticeModel.cs" />
+    <Compile Include="Models\PracticeSynchronization.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PracticeSynchronizationLog.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICES_BKP_021619.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practices_Techincal_Information.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practices_VAS_Other.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PracticeVendor.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Bank_Statement.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_CALLING_DAY_CRITERIA.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Contract.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_CPT_Plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_CPT_PLAN_GROUP.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Daily_Missing_Work.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_DIAGNOSIS1.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_DIVISION.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_FACILITY.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\practice_gender.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Groups.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\practice_information.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Locations.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_LOCATIONS_PLAN.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Locations_Plan_Group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_NPI_confirmation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_PROCEDURE1.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Providers_Plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Providers_Plan_Group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Reporting.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRACTICE_SERVER.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Contact_Information.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Daily_Office_Hours.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Insurance_Information.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Physician_Capitation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Physician_Facilities_Info.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SignUp_Referring_Physician.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_SMS_Settings.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Specialty.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Special_Instruction_Answers.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Special_Instruction_AnswersReview.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Special_Instruction_Category.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Special_Instruction_Questions.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Termination.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Termination_Steps.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Transcription_Amount.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Transcription_Rate.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Practice_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prac_MeetingSchedule.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prac_TermDate_Process.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prac_Term_Date_Steps.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Procedure.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROCEDURES_ALERTS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Procedures_Payer.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProcedureViewModel.cs" />
+    <Compile Include="Models\Procedure_Category.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\procItemized_Statement_Claim_Due_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\providercptplanModels.cs" />
+    <Compile Include="Models\ProviderFeeScheduleSearchVM.cs" />
+    <Compile Include="Models\ProviderPlanNotesViewModel.cs" />
+    <Compile Include="Models\Providers_Plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Providers_Plan_Group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\providers_reasons_timeunits.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProviderWise_Financials_by_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Appointment_Rules.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Contractual_Plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Contractual_Plan_Details.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Contractual_Plan_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Plan_Details.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Cpt_Plan_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Diagnosis.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Initial_Settings.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Notes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Oncall.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Payers.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROVIDER_PAYER_PRINTCENTER.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROVIDER_PROCEDURES.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Resources.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Resource_Mapping.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_US_Holidays.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Working_Days_Time.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Working_Days_Time_Temp.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider_Year_Holidays.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PTLReason.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ptl_Description.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ptl_filing_limit.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Race.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReferralPhysicianViewModel.cs" />
+    <Compile Include="Models\Referral_Physicians.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RefreshToken.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegenerateBatchCSIFileModel.cs" />
+    <Compile Include="Models\region_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Relationship.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Resource.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resource_settings.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\ResponseModel277.cs" />
+    <Compile Include="Models\ResponseModelForSerialnumber.cs" />
+    <Compile Include="Models\ResubmissionCode.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Revenue_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\revenue_code_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rolesss.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles_Module_Properties.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\room_booking_appointment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\room_location.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\room_status.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ROUTE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaveTrackDetails.cs" />
+    <Compile Include="Models\Sceduler_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SchedulerAppointmentsViewModel.cs" />
+    <Compile Include="Models\Scheduler_customization.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Scheduler_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Scheduling_Workday_Options.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ScrubberClaim.cs" />
+    <Compile Include="Models\ScrubberQueue.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Second_level_rejection.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SelectListViewModel.cs" />
+    <Compile Include="Models\sequence_of_care.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service_Type_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service_Type_Codes_Description.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shift.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\showprovidercptplan.cs" />
+    <Compile Include="Models\Source_of_Admission.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPAppChkEligibility_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPDataModel.cs" />
+    <Compile Include="Models\SpecialInstructionViewModel.cs" />
+    <Compile Include="Models\Specialization.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPECIALIZATION1.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialty_Category.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialty_Groups.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllClaimsInQueue_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllCleanClaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllViolations_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsDiagnosis_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsInfo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsInsurancesInfo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsProcedurestest_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsProcedures_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchClaimsProviderPayers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetBatchCompanyDetails_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetCleanClaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetFailedClaimsFromScrubber_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetFailedClaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPS_Reason.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_AGINGCOMPDEMO_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_AGINGDEMO_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_AllPaymentSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Appointment_Detail_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ClaimInsuranceSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ClaimPatientSearchnew_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ClaimsSearch_EDI_bkp_04112025_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ClaimsSearch_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_CLAIMSUMMARYAMOUNTS_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Claim_Batch_Exception_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Claim_Insurancebysearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Claim_patientbysearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_CountAssignedAccounts_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_CountAssignedclaims_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_CPADEMO_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERAADJCODEGLOSSARY_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERAADJCODEGLOSSARY_VIEW_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERACHECKDETAIL_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERACLAIMDETAIL_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERACLAIMDETAIL_VIEW_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ERASEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_FacilitiesSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_get999Report_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETAGINGDASHBOARD_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETAGINGDASHBOARD_Tets_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetAllAssignedClaimForusers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetBatchDetail1_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetBatchDetail_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetBatchDetail_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_getBatchHistory_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_getBatchHistory_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetClaimById_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetClaimPaymentDetail_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetClaimPaymentDetail_Updated_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetClaimsListByDOS1_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_getcptplanlist_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetInsuranceInfo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETPATIENTBDAYS_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETPERIODANALYSISANDCLOSING_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETPRACTICEANALYSIS_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_getpraticedataforCPTPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetProviderCPTPlanID_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetProviderCPTPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GETRECALLVISITS_EGD_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetScrubberRejectionReportDetailes_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetScrubberRejectionReports_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetSpecificClaiminfo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetStandardCPTSByPracticeState_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetStandardCPTs_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetUserAuthorization_Hamza_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetUserAuthorization_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_getuserDailyReport_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GUARANTORSEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsFacilityInfoWithoutModifierAndProcedure_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsFacilityPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsLocationPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsLocationWithoutModifierAndProcedure_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsPayerWithoutModifierAndProcedure_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsPayer_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsStatePlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsStateWithoutModifierAndProcedure_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_insuranceardetailreport_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsuranceSearch_a_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsuranceSearch_BK_11082018_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InsuranceSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Missing_Appointment_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_NDCSEARCHBySearchCriteria_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_NDCSEARCHBySearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_NDCSEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PassedClaimsSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PassedClaimsSearch_Result1.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PATIENTAPPSEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PATIENTINSSERACH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PatientSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PATIENTSTATEMENTCOUNT_BYCLAIM_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PATIENTSTATEMENTCOUNT_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PATSTATEMENT_CLAIMSUMMARY_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PaymentCreatiaForSreach_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PaymentSearchlistfinal_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PaymentSearchlistnew_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PRACTICEPROVIDERPAYERSEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ProcedureSearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ProviderInfo_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PROVIDERPAYERSEARCH_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ProviderPlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ProviderWithoutModifierAndProcedure_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_provider_working_times_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SearchProviderCPTFeePlan_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Search_Claim_Batch_Error_EDI_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Search_Claim_Batch_Error_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SelectAllPracticeUsers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_userReportChargesNewPMOSB_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_userReportCharges_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SS_abn_codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STANDARD_CPT_FEE.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\state_lookup.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\state_x_consortium.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\state_x_region.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatmentDownloadRequestModel.cs" />
+    <Compile Include="Models\SubmissionMethod.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\submissionPlan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Submission_plan.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\submission_Plan_bkp.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Submission_Schedual.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\submission_servers.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SUBMISSION_SETUP.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sub_Module.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Superbill_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedClaim.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedClaimCharge.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedClaimPayment.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedPatient.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedPractice.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedPracticeLocation.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncedProvider.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SyncExcludedPractice.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TableIdCounter.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TASK.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TASK_CATEGORIES.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Taxonomy_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Team.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeamViewModel.cs" />
+    <Compile Include="Models\TEAM_SUPERVISORS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TicketAssignmentRequest.cs" />
+    <Compile Include="Models\TicketMessageDetail.cs" />
+    <Compile Include="Models\TicketSearchModel.cs" />
+    <Compile Include="Models\Tickettracker.cs" />
+    <Compile Include="Models\Ticket_attachments.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket_Patient_Claims_Info.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket_Tracking.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TIME_SLOT_ASSIGNED_REASONS.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TokenViewModel.cs" />
+    <Compile Include="Models\TreeViewItem.cs" />
+    <Compile Include="Models\TWO_FACTOR_AUTHORAZITION.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type_Of_Admission.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type_of_Care.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type_of_facility.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type_Of_Services.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\unpostedModel.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserManagementViewModel.cs" />
+    <Compile Include="Models\UsersLog.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users_Module_Properties.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users_Practice_Provider.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users_Roles.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users_Settings.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsertaskAssigned.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_era_request.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Group.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USPGetAlertAgainst_PAT_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspGetAllPaymentbySearch_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspGetBatchClaimsProviderPayersDataFromUSP_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspGetBatchClaimsProviderPayers_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspGetPatientAttachments_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_Charge_Breakdown_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_CheckMedicareClaim_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_COLLECTION_ANALYSIS_REPORT_NPM_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_Denial_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_ERAClaimOverPayment_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_GetOfficeTimeForProvidersAndLocations_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GetTicketsWithFilters_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_NEGATIVE_BALANCE_REPORT_Result.cs" />
+    <Compile Include="Models\USP_NPM_CREDIT_BALANCE_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_NPM_PATIENT_AGING_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_NPM_PLAN_AGING_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_PATIENT_AGING_REPORT_NPM_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_Patient_Wise_Aging_Summary_Report_NPM_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_Search_Insurances_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_Visit_Claim_Activity_Report_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\US_Holidays.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UTBL_EnrollmentTracker.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ValidateInsGroupDeletion_Result.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Value_Added_Services.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Value_Codes.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VAS_Types.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vendor.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\AccountAssigneeResponse.cs" />
+    <Compile Include="Models\ViewModels\AddInsuranceRequest.cs" />
+    <Compile Include="Models\ViewModels\AppointmentsSearchViewModel.cs" />
+    <Compile Include="Models\ViewModels\AppointmentStatusCreateViewModel.cs" />
+    <Compile Include="Models\ViewModels\BatchErrorsRequestModel.cs" />
+    <Compile Include="Models\ViewModels\BatchesHistoryRequestModel.cs" />
+    <Compile Include="Models\ViewModels\ClaimPaymentsDetailRequest.cs" />
+    <Compile Include="Models\ViewModels\ClaimsDetail.cs" />
+    <Compile Include="Models\ViewModels\ClaimSubmissionResponse.cs" />
+    <Compile Include="Models\ViewModels\Credit_BR_Response.cs" />
+    <Compile Include="Models\ViewModels\Denial_Report_Response.cs" />
+    <Compile Include="Models\ViewModels\DXViewModel.cs" />
+    <Compile Include="Models\ViewModels\InsuranceDetailReportResponse.cs" />
+    <Compile Include="Models\ViewModels\NDCModel.cs" />
+    <Compile Include="Models\ViewModels\NDCViewModel.cs" />
+    <Compile Include="Models\ViewModels\ColorChangeModel.cs" />
+    <Compile Include="Models\ViewModels\CreateAttachmentRequest.cs" />
+    <Compile Include="Models\ViewModels\EligibilityModels.cs" />
+    <Compile Include="Models\ViewModels\ERASearchRequestModel.cs" />
+    <Compile Include="Models\ViewModels\EraSummaryRequest.cs" />
+    <Compile Include="Models\ViewModels\InsurancePaymentRequestModel.cs" />
+    <Compile Include="Models\ViewModels\NegativeBalanceReportResponse.cs" />
+    <Compile Include="Models\ViewModels\Pateint_ASR_Responsecs.cs" />
+    <Compile Include="Models\ViewModels\PatientBirthDaysResponse.cs" />
+    <Compile Include="Models\ViewModels\PaymentDetailResponse.cs" />
+    <Compile Include="Models\ViewModels\PaymentsSearchRequestModel.cs" />
+    <Compile Include="Models\ViewModels\Payment_detail_Proc_Response.cs" />
+    <Compile Include="Models\ViewModels\Plan_Aging_Response.cs" />
+    <Compile Include="Models\ViewModels\PracticeAppointmentReasonCreateVM.cs" />
+    <Compile Include="Models\ViewModels\PracticeAppointmentStatusViewModel.cs" />
+    <Compile Include="Models\ViewModels\PracticeDxModel.cs" />
+    <Compile Include="Models\ViewModels\PracticeFTPViewModel.cs" />
+    <Compile Include="Models\ViewModels\PracticeSynchronizationModel.cs" />
+    <Compile Include="Models\ViewModels\ProviderAppointmentRuleViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProvidersByPracticeResponse.cs" />
+    <Compile Include="Models\ViewModels\ProviderSchedulesViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProviderWorkingDayTimeViewModel.cs" />
+    <Compile Include="Models\ViewModels\PatientNoteViewModel.cs" />
+    <Compile Include="Models\ViewModels\RegenerateBatchFileRequestModel.cs" />
+    <Compile Include="Models\ViewModels\ReportRequestModel.cs" />
+    <Compile Include="Models\ViewModels\ScrubberReportResponse.cs" />
+    <Compile Include="Models\ViewModels\SlotAvailabilityCheckVM.cs" />
+    <Compile Include="Models\ViewModels\SMTPConfigModel.cs" />
+    <Compile Include="Models\ViewModels\TimingSearchViewModel.cs" />
+    <Compile Include="Models\ViewModels\userDailyReportResponse.cs" />
+    <Compile Include="Models\ViewModels\UserEmailOptions.cs" />
+    <Compile Include="Models\ViewModels\ViewERASummaryRequest.cs" />
+    <Compile Include="Models\ViewModels\VisitClaimActivityReportResponse.cs" />
+    <Compile Include="Models\WCBRating.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeekDay.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Zip_City_State.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\zip_state.cs">
+      <DependentUpon>NPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\IAlertRepository.cs" />
+    <Compile Include="Repositories\IClaimAssignmentRepository.cs" />
+    <Compile Include="Repositories\IClaimBatch276.cs" />
+    <Compile Include="Repositories\IClaimService.cs" />
+    <Compile Include="Repositories\IClaimStatusService.cs" />
+    <Compile Include="Repositories\IEligibility.cs" />
+    <Compile Include="Repositories\IEncryption.cs" />
+    <Compile Include="Repositories\IERAImport.cs" />
+    <Compile Include="Repositories\IFTP.cs" />
+    <Compile Include="Repositories\IDeltaSyncRepository.cs" />
+    <Compile Include="Repositories\IGenerateBatch276Service.cs" />
+    <Compile Include="Repositories\INPMLogger.cs" />
+    <Compile Include="Repositories\IPatientAttachment.cs" />
+    <Compile Include="Repositories\IPatientBilling.cs" />
+    <Compile Include="Repositories\IPaymentsRepository.cs" />
+    <Compile Include="Repositories\IReferralPhysicianRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\ISchedulerRepository.cs" />
+    <Compile Include="Models\InboxHealth\PatientCreatedEventData.cs" />
+    <Compile Include="Repositories\IScrubberRepository.cs" />
+    <Compile Include="Repositories\ITicketAttachment.cs" />
+    <Compile Include="Repositories\ITicketTrackerRrepo.cs" />
+    <Compile Include="Repositories\IUBClaim.cs" />
+    <Compile Include="Repositories\IVendorRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\ICompanyRepository.cs" />
+    <Compile Include="Repositories\IDashboardRepository.cs" />
+    <Compile Include="Repositories\IDemographicRepository.cs" />
+    <Compile Include="Repositories\IInsuranceSetupRepository.cs" />
+    <Compile Include="Repositories\IPracticeRepository.cs" />
+    <Compile Include="Repositories\IReportRepository.cs" />
+    <Compile Include="Repositories\ISetupRepository.cs" />
+    <Compile Include="Repositories\ISubmissionRepository.cs" />
+    <Compile Include="Repositories\IUserManagementSetup.cs" />
+    <Compile Include="Services\AlertService.cs" />
+    <Compile Include="Models\ViewModels\ChargesBreakdownReportResponse.cs" />
+    <Compile Include="Services\ClaimAssignmentService.cs" />
+    <Compile Include="Services\ClaimBatch276.cs" />
+    <Compile Include="Services\ClaimsOccurenceSpanCode.cs" />
+    <Compile Include="Services\ClaimsService.cs" />
+    <Compile Include="Services\ClaimStatus.cs" />
+    <Compile Include="Services\ClaimStatusService.cs" />
+    <Compile Include="Services\DeltaSyncService.cs" />
+    <Compile Include="Services\GenerateBatch276Service.cs" />
+    <Compile Include="Services\InboxHealthAPI.cs" />
+    <Compile Include="Services\InboxHealthService.cs" />
+    <Compile Include="Services\PanelBillingSummary.cs" />
+    <Compile Include="Services\PatientAttachmentService.cs" />
+    <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Services\DashboardService.cs" />
+    <Compile Include="Services\DemographicService.cs" />
+    <Compile Include="Services\EligibilityService.cs" />
+    <Compile Include="Services\EncryptionService.cs" />
+    <Compile Include="Services\ERAImportService.cs" />
+    <Compile Include="Services\FileHandlerService.cs" />
+    <Compile Include="Repositories\IFileHandler.cs" />
+    <Compile Include="Services\FTPService.cs" />
+    <Compile Include="Services\InsuranceSetupService.cs" />
+    <Compile Include="Repositories\IPDFRepository.cs" />
+    <Compile Include="Services\NPMLogger.cs" />
+    <Compile Include="Services\PaymentsService.cs" />
+    <Compile Include="Services\PDFService.cs" />
+    <Compile Include="Services\PracticeService.cs" />
+    <Compile Include="Services\ReferralPhysiciansService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\SchedulerService.cs" />
+    <Compile Include="Services\ScrubberService.cs" />
+    <Compile Include="Services\SetupService.cs" />
+    <Compile Include="Services\SubmissionService.cs" />
+    <Compile Include="Services\TicketAttachmentsService.cs" />
+    <Compile Include="Services\TTService.cs" />
+    <Compile Include="Services\UBClaim.cs" />
+    <Compile Include="Services\UserManagementService.cs" />
+    <Compile Include="Services\VendorService.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="TokenValidationHandler.cs" />
+    <Compile Include="Web References\com.gatewayedi.services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Logo.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\NPM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NPM.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NPM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NPM1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\fonts\arial.ttf" />
+    <Content Include="Content\fonts\arialbd.ttf" />
+    <Content Include="Content\fonts\arialbi.ttf" />
+    <Content Include="Content\fonts\ariali.ttf" />
+    <Content Include="Content\fonts\ARIALN.TTF" />
+    <Content Include="Content\fonts\ARIALNB.TTF" />
+    <Content Include="Content\fonts\ARIALNBI.TTF" />
+    <Content Include="Content\fonts\ARIALNI.TTF" />
+    <Content Include="Content\fonts\ariblk.ttf" />
+    <Content Include="Content\fonts\ARLRDBD.ttf" />
+    <Content Include=".editorconfig" />
+    <EntityDeploy Include="Models\NPM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NPM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Specifications\Ansi-133-Specification.xml" />
+    <Content Include="Specifications\Ansi-158-Specification.xml" />
+    <Content Include="Views\Email Templates\Emailtemplate.html" />
+    <Content Include="Web References\ServiceReference1\COREEnvelopeBatchResultsAckSubmissionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceReference1\COREEnvelopeBatchResultsRetrievalResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceReference1\COREEnvelopeBatchSubmissionAckRetrievalResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceReference1\COREEnvelopeBatchSubmissionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceReference1\COREEnvelopeRealTimeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceReference1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\ServiceReference1\soap.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web References\com.gatewayedi.services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\com.gatewayedi.services\Service.wsdl" />
+    <Content Include="Web References\com.gatewayedi.services\WSEligibilityResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.gatewayedi.services\WSX12EligibilityResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\ServiceReference1\CORE.wsdl" />
+    <None Include="Web References\ServiceReference1\CORERule2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\PatientsPictures\" />
+    <Folder Include="Views\RealTimeClaimStatus\" />
+    <Folder Include="Views\Scheduler\" />
+    <Folder Include="Views\TicketAttachment\" />
+    <Folder Include="Views\TicketTracker\" />
+    <Folder Include="Views\UBClaim\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://api.gatewayedi.com/v2/CORE_CAQH/soap">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServiceReference1\</RelPath>
+      <UpdateFromURL>https://api.gatewayedi.com/v2/CORE_CAQH/soap</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NPMAPI_ServiceReference1_Core</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://services.gatewayedi.com/Eligibility/Service.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.gatewayedi.services\</RelPath>
+      <UpdateFromURL>https://services.gatewayedi.com/Eligibility/Service.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NPMAPI_com_gatewayedi_services_Eligibility</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10579</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9639/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

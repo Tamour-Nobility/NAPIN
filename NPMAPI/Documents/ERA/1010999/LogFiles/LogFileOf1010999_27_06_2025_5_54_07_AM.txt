@@ -1,0 +1,13 @@
+|Friday|June|===============****STATS****===============|ERA Import Service|
+User Request Recieved Process Started at this time:6/27/2025 5:54:13 AM
+Username:	HA2
+Practice_Code:	1010999
+New Files:	0
+Status:	Failed
+FTP_EXCEPTION:	PracticeCode Not Found
+Stats Migration Store Procedure Start For 1 Time.
+Stats Migration Store Procedure Start at:6/27/2025 5:54:15 AM
+SQL Connection Open Successfully!
+SQL Connection Close Successfully!
+Stats Migration Store Procedure End at:6/27/2025 5:54:15 AM
+|2025|===============*******END*******===============|Date:6/27/2025 5:54:15 AM|
